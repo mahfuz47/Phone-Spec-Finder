@@ -19,13 +19,9 @@ main {
 
 #card:hover {
     transform: scale(1.02);
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .details-image {
     border-radius: 25px;
-}
-
-ul>li {
-    width: 700px;
 }

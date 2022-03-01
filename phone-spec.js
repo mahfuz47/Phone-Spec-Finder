@@ -1,7 +1,6 @@
 const searchPhone = () => {
     const searchField = document.getElementById("search-field");
     const searchText = searchField.value;
-    // console.log(searchText);
     searchField.value = "";
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
@@ -9,11 +8,12 @@ const searchPhone = () => {
         .then((data) => displaySearchResult(data.data));
 };
 
+// Phone Search result Section
+
 const displaySearchResult = (phones) => {
     const searchResult = document.getElementById("search-result");
     searchResult.textContent = "";
 
-    // console.log(phones);
     phones.forEach((phone) => {
         const div = document.createElement("div");
         div.classList.add("col");
@@ -24,7 +24,7 @@ const displaySearchResult = (phones) => {
             <p class="card-text fw-bold">
                 <span class="text-muted">Brand: ${phone.brand}</span>
             </p>
-            <h5 class="card-title">${phone.phone_name}</h5>
+            <h5 class="card-title fw-bold">${phone.phone_name}</h5>
             </div>
             <div class="card-button text-center text-white ">
             <button onclick="displayPhoneDetails('${phone.slug}')" class="btn btn-outline-warning px-5 py-2 rounded-pill fw-bolder">
@@ -37,55 +37,101 @@ const displaySearchResult = (phones) => {
         searchResult.appendChild(div);
     });
 };
-
-// Detail Section
-
+//
+//
+//
+//
+// Display Detail Detail Section
+//
+//
+//
+//
+//
 const displayPhoneDetails = (phoneId) => {
-    // console.log(phoneId);
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
     fetch(url)
         .then((res) => res.json())
         .then((data) => loadDetails(data.data));
 };
-
+//
+//
+//
+// Load Detail Data Section
+//
+//
+//
 const loadDetails = (data) => {
     console.log(data);
     let phoneDetails = document.getElementById("phone-details");
-    const mainFeatures = Object.keys(data.mainFeatures);
+    phoneDetails.textContent = "";
+    const mainPhoneFeatures = Object.keys(data.mainFeatures);
     const mainFeaturesValue = Object.values(data.mainFeatures);
+    const otherDetails = Object.keys(data);
+    const otherDetailsValue = Object.values(data.others);
     const div = document.createElement("div");
     div.setAttribute("class", "row d-flex");
-    phoneDetails.textContent = "";
     div.innerHTML = `
-    <h3 class="text-center fw-bold gy-3 text-white">PHONE DETAILS</h3>
+    <h4 class="text-center fw-bold gy-4 text-dark">PHONE DETAILS</h4>
     <div class="col-sm-12 col-md-4 "><img class="w-100 details-image" src="${data.image}" alt="" /></div>
-    <div class="col-sm-12 col-md-6">
-    <table class="table table-bordered">
+    <div class= "col-sm-12 col-md-6">
+    
+    <table class="table table-bordered bg-light rounded-3 pt-2">
     <thead>
         <tr>
-            <th>FEATURES</th>
+            <th>Name</th>
+            <th>Realease Date</th>
+            
+            
+        </tr>
+    </thead>
+        <tbody><tr>
+        <td>${data.name}</td>
+        <td>${data.releaseDate}</td>
+        
+    </tr>
+</tbody>
+    <thead>
+        <tr>
+            <th>SECTION</th>
             <th>MAIN FEATURES</th>
             
             
         </tr>
     </thead>
     <tbody>
+        
         <tr>
-            <td>${mainFeatures[0]}</td>
+            <td>${mainPhoneFeatures[0]}</td>
             <td>${mainFeaturesValue[0]}</td>
             
            
         </tr>
         <tr>
-            <td>${mainFeatures[0]}</td>
-            <td>Peter</td>
+            <td>${mainPhoneFeatures[1]}</td>
+            <td>${mainFeaturesValue[1]}</td>
             
         </tr>
         <tr>
-            <td>3</td>
-            <td>John</td>
+            <td>${mainPhoneFeatures[2]}</td>
+            <td>${mainFeaturesValue[2]}</td>
             
         </tr>
+        <tr>
+            <td>${mainPhoneFeatures[3]}</td>
+            <td>${mainFeaturesValue[3]}</td>
+            
+        </tr>
+        <tr>
+            <td>${mainPhoneFeatures[4]}</td>
+            <td>${mainFeaturesValue[4]}</td>
+            
+        </tr>
+        <tr>
+            <td>${otherDetails[6]}</td>
+            <td>${otherDetailsValue}</td>
+            
+        </tr>
+        
     </tbody>
 </table>
     </div>
