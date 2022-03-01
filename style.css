@@ -7,10 +7,25 @@ header>h1 {
     font-size: 60px;
 }
 
-body {
+main {
     font-family: "Poppins", sans-serif;
 }
 
-.card-box {
-    border: none;
+#card {
+    height: 600px;
+    padding: 10px 15px;
+    border-radius: 25px;
+}
+
+#card:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+.details-image {
+    border-radius: 25px;
+}
+
+ul>li {
+    width: 700px;
 }
