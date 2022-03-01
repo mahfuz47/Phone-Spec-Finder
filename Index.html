@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PHONESPEC FINDER</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="bootstrap css/bootstrap.min.css" />
+</head>
+
+<body class="bg-secondary">
+    <!-- Header Section  -->
+    <header>
+        <h1 class="text-center fw-bolder my-4 text-white">PHONESPEC FINDER</h1>
+    </header>
+    <main class="container">
+        <!-- Search Box Section  -->
+        <div class="input-group mb-3 w-50 mx-auto mb-5">
+            <input id="search-field" type="text" class="form-control" placeholder="search phone (ex: Iphone)" aria-label="Recipient's username" aria-describedby="button-addon2" />
+            <button onclick="searchPhone()" class="btn btn-outline-warning fw-bolder text-dark" type="button" id="search-button">
+          Search
+        </button>
+        </div>
+        <!-- Single Phone Details -->
+
+        <div>
+            <div id="phone-details" class="w-100 row">
+                <!-- <div class="col-sm-1 col-md-4"><img src="" alt="" /></div>
+                <div class="col-sm-1 col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li>
+                    </ul>
+                </div>
+            </div> -->
+            </div>
+
+            <!-- Result Section -->
+
+            <div id="search-result" class="row row-cols-1 row-cols-md-3 my-5 py-5 gy-4"></div>
+    </main>
+    <script src="bootstrap js/bootstrap.bundle.min.js"></script>
+    <script src="phone-spec.js"></script>
+</body>
+
+</html>
