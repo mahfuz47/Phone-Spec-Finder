@@ -1,15 +1,33 @@
+//
+//
+// Spinner Section
+//
+//
+//
+const toggleSpinner = (displayStyle) => {
+    document.getElementById("spinner").style.display = displayStyle;
+};
+
 const searchPhone = () => {
     const searchField = document.getElementById("search-field");
-    const searchText = searchField.value;
+    const searchText = searchField.value.toLowerCase();
+    toggleSpinner("block");
     searchField.value = "";
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
         .then((res) => res.json())
         .then((data) => displaySearchResult(data.data));
 };
-
+//
+//
+//
+//
+//
 // Phone Search result Section
-
+//
+//
+//
+//
 const displaySearchResult = (phones) => {
     const searchResult = document.getElementById("search-result");
     searchResult.textContent = "";
@@ -36,6 +54,7 @@ const displaySearchResult = (phones) => {
         `;
         searchResult.appendChild(div);
     });
+    toggleSpinner("none");
 };
 //
 //
@@ -75,6 +94,8 @@ const loadDetails = (data) => {
     <div class="col-sm-12 col-md-4 "><img class="w-100 details-image" src="${data.image}" alt="" /></div>
     <div class= "col-sm-12 col-md-6">
     
+
+
     <table class="table table-bordered bg-light rounded-3 pt-2">
     <thead>
         <tr>
