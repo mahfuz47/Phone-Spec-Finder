@@ -10,13 +10,32 @@ const toggleSpinner = (displayStyle) => {
 
 const searchPhone = () => {
     const searchField = document.getElementById("search-field");
-    const searchText = searchField.value.toLowerCase();
-    toggleSpinner("block");
-    searchField.value = "";
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-    fetch(url)
-        .then((res) => res.json())
-        .then((data) => displaySearchResult(data.data));
+    const searchText = searchField.value;
+    const error = document.getElementById("display-error");
+    const displayResult = document.getElementById("search-result");
+    const singlePhoneDetails = document.getElementById("phone-details");
+
+    if (searchText === "") {
+        alert("please write the valid phone name");
+        error.innerText = "No result found";
+        displayResult.innerHTML = "";
+        singlePhoneDetails.innerHTML = "";
+    } else if (searchText % 1 === 0) {
+        alert("please write the valid phone name");
+        error.innerText = "No result found";
+
+        displayResult.innerHTML = "";
+        singlePhoneDetails.innerHTML = "";
+    } else {
+        toggleSpinner("block");
+
+        const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => displaySearchResult(data.data));
+        searchField.value = "";
+        error.innerText = "";
+    }
 };
 //
 //
@@ -107,7 +126,7 @@ const loadDetails = (data) => {
     </thead>
         <tbody><tr>
         <td>${data.name}</td>
-        <td>${data.releaseDate}</td>
+        <td id="release-date">${data.releaseDate}</td>
         
     </tr>
 </tbody>
