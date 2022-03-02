@@ -109,73 +109,77 @@ const loadDetails = (data) => {
     const div = document.createElement("div");
     div.setAttribute("class", "row d-flex");
     div.innerHTML = `
-    <h4 class="text-center fw-bold gy-4 text-dark">PHONE DETAILS</h4>
-    <div class="col-sm-12 col-md-4 "><img class="w-100 details-image" src="${data.image}" alt="" /></div>
-    <div class= "col-sm-12 col-md-6">
+        <h4 class="text-center fw-bold gy-4 text-dark">PHONE DETAILS</h4>
+        <div class=" col-sm-12 col-md-4 py-4"><img class="w-100 details-image" src="${
+          data.image
+        }" alt="" /></div>
+        <div class= " col-sm-12 col-md-7 py-4">
+        
     
-
-
-    <table class="table table-bordered bg-light rounded-3 pt-2">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Realease Date</th>
-            
-            
-        </tr>
-    </thead>
-        <tbody><tr>
-        <td>${data.name}</td>
-        <td id="release-date">${data.releaseDate}</td>
-        
-    </tr>
-</tbody>
-    <thead>
-        <tr>
-            <th>SECTION</th>
-            <th>MAIN FEATURES</th>
-            
+    
+        <table class="table table-bordered bg-light pt-2">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Realease Date</th>
+                
+                
+            </tr>
+        </thead>
+            <tbody><tr>
+            <td>${data.name}</td>
+            <td>${
+              data.releaseDate ? data.releaseDate : "No release date found"
+            }</td>
             
         </tr>
-    </thead>
-    <tbody>
-        
-        <tr>
-            <td>${mainPhoneFeatures[0]}</td>
-            <td>${mainFeaturesValue[0]}</td>
-            
-           
-        </tr>
-        <tr>
-            <td>${mainPhoneFeatures[1]}</td>
-            <td>${mainFeaturesValue[1]}</td>
-            
-        </tr>
-        <tr>
-            <td>${mainPhoneFeatures[2]}</td>
-            <td>${mainFeaturesValue[2]}</td>
-            
-        </tr>
-        <tr>
-            <td>${mainPhoneFeatures[3]}</td>
-            <td>${mainFeaturesValue[3]}</td>
-            
-        </tr>
-        <tr>
-            <td>${mainPhoneFeatures[4]}</td>
-            <td>${mainFeaturesValue[4]}</td>
-            
-        </tr>
-        <tr>
-            <td>${otherDetails[6]}</td>
-            <td>${otherDetailsValue}</td>
-            
-        </tr>
-        
     </tbody>
-</table>
-    </div>
-    
-            `;
+        <thead>
+            <tr>
+                <th>SECTION</th>
+                <th>MAIN FEATURES</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>${mainPhoneFeatures[0]}</td>
+                <td>${mainFeaturesValue[0]}</td>
+                
+               
+            </tr>
+            <tr>
+                <td>${mainPhoneFeatures[1]}</td>
+                <td>${mainFeaturesValue[1]}</td>
+                
+            </tr>
+            <tr>
+                <td>${mainPhoneFeatures[2]}</td>
+                <td>${mainFeaturesValue[2]}</td>
+                
+            </tr>
+            <tr>
+                <td>${mainPhoneFeatures[3]}</td>
+                <td>${mainFeaturesValue[3]}</td>
+                
+            </tr>
+            <tr>
+                <td>${mainPhoneFeatures[4]}</td>
+                <td>${mainFeaturesValue[4]}</td>
+                
+            </tr>
+            <tr>
+                <td>${otherDetails[6]}</td>
+                <td>${otherDetailsValue}</td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
+        </div>
+        
+                `;
     phoneDetails.appendChild(div);
 };

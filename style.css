@@ -1,4 +1,9 @@
+/* IMPOERTED LINKS */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Syne+Mono&display=swap");
+
+/* header section  */
+
 header {
     font-family: "Syne Mono", monospace;
 }
@@ -7,9 +12,22 @@ header>h1 {
     font-size: 60px;
 }
 
+
+/* Spinner Section */
+
+#spinner {
+    display: none;
+}
+
+
+/* Main Section  */
+
 main {
     font-family: "Poppins", sans-serif;
 }
+
+
+/* Card Section  */
 
 #card {
     height: 600px;
@@ -22,10 +40,9 @@ main {
     transition: transform 0.5s ease;
 }
 
+
+/* Details Section  */
+
 .details-image {
     border-radius: 25px;
-}
-
-#spinner {
-    display: none;
 }
